@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <p>Nothing to see here...</p>
+  <!-- Project -->
+  <script src="main.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Details Form</title>
+    <style>
+        body { font-family: Arial; max-width: 500px; margin: 20px auto; padding: 15px; }
+        .form-group { margin-bottom: 15px; }
+        input { width: 100%; padding: 8px; }
+        button { background: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Enter Your Details</h2>
+    <form id="detailsForm">
+        <div class="form-group">
+            <input type="text" id="name" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+            <input type="email" id="email" placeholder="Email Address" required>
+        </div>
+        <div class="form-group">
+            <input type="tel" id="phone" placeholder="Phone Number (with country code)" required>
+        </div>
+        <div class="form-group">
+            <input type="url" id="instagram" placeholder="Instagram Profile Link" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('detailsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const phone = document.getElementById('phone').value.replace(/[^0-9+]/g, '');
+            
+            // WhatsApp API integration
+            const whatsappUrl = `https://wa.me/${phone}?text=Congratulations! Your details have been successfully submitted.`;
+            
+            // Open WhatsApp message
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Details Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1a73e8;
+            box-shadow: 0 0 0 2px rgba(26,115,232,0.2);
+        }
+
+        button {
+            background: #1a73e8;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #1557b0;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                margin: 1rem;
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Your Details</h1>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">WhatsApp Number:</label>
+                <input type="tel" id="phone" placeholder="+919876543210" required>
+            </div>
+
+            <div class="form-group">
+                <label for="instagram">Instagram URL:</label>
+                <input type="url" id="instagram" placeholder="https://instagram.com/username" required>
+            </div>
+
+            <button type="submit">Submit Details</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get and sanitize phone number
+            const phoneNumber = document.getElementById('phone').value.replace(/[^\d+]/g, '');
+            
+            // Create WhatsApp message
+            const message = encodeURIComponent(
+                "🎉 Congratulations! 🎉\n\n" +
+                "Your details have been successfully submitted!\n\n" +
+                "We'll contact you soon. Thank you!"
+            );
+
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Optional: Reset form after submission
+            this.reset();
+        });
+    </script>
+</body>
+</html>
